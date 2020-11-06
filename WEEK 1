@@ -1,0 +1,44 @@
+#include<cstdlib>
+#include<iostream>
+#include<vector>
+
+
+using std::vector;
+using std::cin;
+using std::cout ;
+using namespace std;
+
+
+long long  ayush (const vector<int >&b )
+	{
+		 int first=-1;
+		 int a=b.size();
+				for (int i=0;i<a;++i)
+				{
+					if((first == -1) || b[first] < b[i] )
+					first=i;
+				}
+
+
+			  int second= -1;
+				for(int j=0;j<a;++j)
+				{
+if  ( (  j != first) && (  ( second==-1 ) || (b[second]  < b[j] ) )  )
+					second=j;
+				}
+
+			return ((long long) (b[first]) ) *  b[second]  ;
+	}
+int main()
+{
+	//cout <<"start"<<endl;
+	int a;
+	std::cin>>a;
+	vector<int >b(a);
+	for(int i=0;i<a;i++)
+		std::cin>>b[i];
+
+	//fun(b,a);
+    std::cout<<ayush(b)<<"\n";
+        return 0;
+}
